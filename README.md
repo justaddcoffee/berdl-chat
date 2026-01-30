@@ -23,7 +23,7 @@ Ask questions in plain English, get SQL queries executed against BERDL, and rece
 
 2. Install dependencies:
    ```bash
-   pip install -r requirements.txt
+   uv sync
    ```
 
 3. Create `.env` file with your credentials:
@@ -42,7 +42,7 @@ Ask questions in plain English, get SQL queries executed against BERDL, and rece
 
 4. Run the app:
    ```bash
-   python main.py
+   uv run python main.py
    ```
 
 5. Open http://localhost:8081 in your browser
