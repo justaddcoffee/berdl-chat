@@ -1,16 +1,16 @@
 #!/usr/bin/env python3
 """
-BERDL Chat - Natural language interface to the BERDL Data Lakehouse.
+Lakehouse Chat - Natural language interface to the KBase/BERDL Data Lakehouse.
 
 A demo app that converts natural language questions into SQL queries,
-executes them against BERDL, and explains the results using Claude.
+executes them against the lakehouse, and explains the results using Claude.
 
 Usage:
     python main.py
 
 Environment variables required:
-    KB_AUTH_TOKEN - BERDL authentication token
-    ANTHROPIC_API_KEY - Anthropic API key for Claude
+    KB_AUTH_TOKEN - KBase authentication token
+    ANTHROPIC_API_KEY - Anthropic API key for Claude (or OAuth token)
 """
 
 import asyncio
@@ -225,8 +225,8 @@ async def main_page():
     import json
 
     with ui.column().classes("w-full max-w-3xl mx-auto p-4"):
-        ui.label("BERDL Chat").classes("text-2xl font-bold mb-2")
-        ui.label("Ask questions about BERDL in plain English").classes("text-gray-500 mb-2")
+        ui.label("Lakehouse Chat").classes("text-2xl font-bold mb-2")
+        ui.label("Ask questions about the KBase/BERDL data lakehouse in plain English").classes("text-gray-500 mb-2")
 
         # Connection status
         with ui.row().classes("items-center gap-2 mb-4"):
@@ -252,7 +252,7 @@ async def main_page():
 
         # Input field (defined early so we can reference it)
         with ui.row().classes("w-full"):
-            input_field = ui.input(placeholder="Ask about microbiome data...").classes("flex-grow")
+            input_field = ui.input(placeholder="Ask about any data in the lakehouse...").classes("flex-grow")
             send_button = ui.button("Send").classes("ml-2")
 
         async def send_message():
@@ -365,4 +365,4 @@ async def main_page():
         send_button.on_click(lambda: background_tasks.create(send_message()))
 
 
-ui.run(title="BERDL Chat", port=8081)
+ui.run(title="Lakehouse Chat", port=8081)
